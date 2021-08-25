@@ -1,0 +1,14 @@
+{
+  "name": "oh-yup-bot",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "WTFPL",
+  "dependencies": {
+    "discord.js": "^13.1.0"
+  }
+}
