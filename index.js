@@ -15,7 +15,7 @@ client.once('ready', () => {
     client.user.setPresence({ activities: [{ name: 'Oh Yuuuuup!', type: 2 }], status: 'online' });
 });
 
-let ohYupRegex = /.*(o+h+\s+y+u+p+).*/i;
+let ohYupRegex = /.*(o+h?\s+y+u+p+).*/i;
 
 client.on('messageCreate', message => {
     if (message.author.bot) return;
