@@ -9,6 +9,7 @@
   "author": "",
   "license": "WTFPL",
   "dependencies": {
-    "discord.js": "^13.1.0"
+    "discord.js": "^13.1.0",
+    "simple-oauth2": "^4.2.0"
   }
 }

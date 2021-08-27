@@ -1,5 +1,5 @@
-const { Client, Intents, ActivityTypes } = require('discord.js');
-const { token } = require('./config.json');
+const { Client, Intents } = require('discord.js');
+const { discord } = require('./config.json');
 
 const client = new Client({
     intents: [
@@ -28,4 +28,4 @@ client.on('messageCreate', message => {
     }
 });
 
-client.login(token);
+client.login(discord.token);
