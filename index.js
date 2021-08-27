@@ -1,5 +1,5 @@
 const { Client, Intents } = require('discord.js');
-const { discord } = require('./config.json');
+const { discord, log } = require('./config.json');
 
 const client = new Client({
     intents: [
@@ -15,17 +15,24 @@ client.once('ready', () => {
     client.user.setPresence({ activities: [{ name: 'Oh Yuuuuup!', type: 2 }], status: 'online' });
 });
 
-let ohYupRegex = /.*(o+h?\s+y+u+p+).*/i;
+let regexTriggers = [
+    { regex: /.*(o+h?\s+y+u+p+).*/i,  response: "Oh Yup!" },
+    { regex: /.*(roy helu).*/i,       response: "Roy Who?" }
+]
 
 client.on('messageCreate', message => {
     if (message.author.bot) return;
 
-    console.log(message);
-    if (ohYupRegex.test(message.content)) {
-        client.channels.fetch(message.channelId).then(
-            channel => channel.send("Oh Yup!")
-        )
-    }
+    if (log) console.log(message);
+
+    regexTriggers.forEach(trigger => {
+        if (trigger.regex.test(message.content)) {
+            client.channels.fetch(message.channelId).then(
+                channel => channel.send(trigger.response)
+            )
+        }
+    })
+
 });
 
 client.login(discord.token);
